@@ -18,13 +18,11 @@ func main() {
 	if err != nil {
 		fmt.Printf("create cmd stdoutpipe failed,error:%s\n", err)
 		os.Exit(1)
-
 	}
 	err = cmd.Start()
 	if err != nil {
 		fmt.Printf("cannot start cmd,error:%s\n", err)
 		os.Exit(1)
-
 	}
 	go func() {
 		var buffer []byte = make([]byte, 4096)
@@ -46,11 +44,9 @@ func main() {
 	if err != nil {
 		fmt.Printf("stop child process failed,error:%s", err)
 		os.Exit(1)
-
 	}
 	cmd.Wait()
 	time.Sleep(1 * time.Second)
-
 }
 
 func stopProcess(cmd *exec.Cmd) error {
